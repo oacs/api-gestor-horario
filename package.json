@@ -1,0 +1,44 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
+    "apidoc": "^0.17.7"
+  },
+  "scripts": {
+    "start": "nodemon -w src -r ./src/config/config.js --signal SIGINT --exec babel-node src/index.js",
+    "dock": "babel-node src/index.js",
+    "start:dev": "nodemon src/index.js --watch './src'",
+    "doc": "apidoc -i src/ -o apidoc/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariatiperez/back-coleados.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariatiperez/back-coleados/issues"
+  },
+  "homepage": "https://github.com/mariatiperez/back-coleados#readme",
+  "apidoc": {
+    "title": "Coleados APIdoc",
+    "url": ""
+  }
+}

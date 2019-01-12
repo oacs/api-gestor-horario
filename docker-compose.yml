@@ -1,0 +1,13 @@
+version: '3'
+services:
+  # web:
+  #   build: .
+  #   container_name: express
+  #   working_dir: /home/node
+  #   command: npm run start:dev
+  #   volumes:
+  #     - .:/home/node
+  #   ports:
+  #     - "3005:3005"
+  #   depends_on:
+  #     - db
