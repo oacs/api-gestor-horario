@@ -1,0 +1,1101 @@
+{
+	"info": {
+		"_postman_id": "eabc00ff-66c5-4aa9-a2d4-4eee9c141c77",
+		"name": "Desarrollo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cursos",
+			"item": [
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/curso/1/1/1/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"curso",
+								"1",
+								"1",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_profesor",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "horario",
+									"value": "xdd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/curso/1/1/1/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"curso",
+								"1",
+								"1",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_profesor",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_periodo",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_materia",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_pensum",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "semestre",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "seccion",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "horario",
+									"value": "xd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/curso/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"curso",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/curso/1/1/1/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"curso",
+								"1",
+								"1",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/curso",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"curso"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materias",
+			"item": [
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/profesores/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Desarrollo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/materia/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Fisica General",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/materia/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/materia/5",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materia_x_Pensum",
+			"item": [
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/2/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
+								"2",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "horas",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "maxH",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "semestre",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/6/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
+								"6",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_materia",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "id_pensum",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "horas",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "maxH",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "semestre",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/2/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
+								"2",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pensum",
+			"item": [
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/pensum/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pensum",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fecha",
+									"value": "2018-2019",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/pensum/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pensum",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fecha",
+									"value": "2019-2020",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/pensum/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pensum",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/pensum/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pensum",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/pensum",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pensum"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prelacion",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/prelacion",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/prelacion/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_prelada",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_prelante",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "id_pensum",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/prelacion/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_prelada",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_prelante",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "id_pensum",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/prelacion/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/prelacion/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Periodo",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/periodo",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"periodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/periodo/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"periodo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "vy",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/periodo/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"periodo",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "periodo5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/periodo/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"periodo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/periodo/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"periodo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profesores",
+			"item": [
+				{
+					"name": "getByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/profesores/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "horarios Anteriores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/profesores/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "asc",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "idc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "disp",
+									"value": "kio",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/profesores/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addOne",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "disp",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "xd",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "xd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/profesores/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/profesores/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/profesores",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"profesores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
