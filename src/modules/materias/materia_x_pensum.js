@@ -55,6 +55,24 @@ router.delete(`/:id_materia/:id_pensum`, function (req, res) {
     });
 });
 
+
+/** Elimina todas las materias de un pensum dado
+ * @param id_materia int
+ * @param id_pensum int
+ * @return materia_x_pensum[]
+ */
+router.delete(`/:id_pensum`, function (req, res) {
+
+    db.get(`delete from materia_x_pensum where id_pensum =  ${req.params.id_pensum}`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Registros eliminados correctamente` });
+        }
+    });
+});
+
+
 /** Actualiza atributos dado los id
  * @param id_materia int
  * @param id_pensum int
