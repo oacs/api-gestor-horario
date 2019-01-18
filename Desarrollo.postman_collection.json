@@ -533,6 +533,26 @@
 					"response": []
 				},
 				{
+					"name": "deleteByPensum",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/2/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
+								"2",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "getAll",
 					"request": {
 						"method": "GET",
