@@ -27,6 +27,18 @@ router.get(`/:id_materia/:id_pensum`, function (req, res) {
     });
 });
 
+router.get(`/:id_pensum`, function (req, res) {
+
+    db.all(`select * from materia_x_pensum where id_pensum = ${req.params.id_pensum} order by id_materia`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
+    });
+});
+
+
 /** Elimina registros dados los id
  * @param id_materia int
  * @param id_pensum int
@@ -57,7 +69,7 @@ router.put(`/:id_materia/:id_pensum`, function (req, res) {
         if (err) {
             res.send({err: err, status: -1});
         } else {
-            res.send({ msg: `Actualizado correctamente` });
+            res.send({ msg: `Actualizado correctamente`, status: 1 });
         }
     });
 });
@@ -83,7 +95,7 @@ router.post(`/`, function (req, res) {
         if (err) {
             res.send({err: err, status: -1});
         } else {
-            res.send({ msg: `Insertado correctamente` });
+            res.send({ msg: `Insertado correctamente` , status: 1});
         }
     });
 });
