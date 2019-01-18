@@ -7,9 +7,11 @@ const router = Router();
  */
 router.get(`/`, function (req, res) {
     db.all(`select * from materia_x_pensum`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 
@@ -17,9 +19,11 @@ router.get(`/`, function (req, res) {
 router.get(`/:id_materia/:id_pensum`, function (req, res) {
 
     db.get(`select * from materia_x_pensum where id_materia =  ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} `, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 
@@ -31,11 +35,14 @@ router.get(`/:id_materia/:id_pensum`, function (req, res) {
 router.delete(`/:id_materia/:id_pensum`, function (req, res) {
 
     db.get(`delete from materia_x_pensum where id_materia =  ${req.params.id_materia} and id_pensum =  ${req.params.id_pensum}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Registro eliminado correctamente` });
+        }
     });
 });
+
 /** Actualiza atributos dado los id
  * @param id_materia int
  * @param id_pensum int
@@ -46,10 +53,13 @@ router.delete(`/:id_materia/:id_pensum`, function (req, res) {
 
 router.put(`/:id_materia/:id_pensum`, function (req, res) {
 
-    db.run(`UPDATE materia_x_pensum SET horas = ${req.body.horas}, maxH = ${req.body.maxH}, semestre = ${req.body.semestre}  where id_materia =  ${req.params.id_materia} and id_pensum =  ${req.params.id_pensum}`, (err) => {
-        console.log(err);
+    db.run(`UPDATE materia_x_pensum SET horas = ${req.body.horas}, maxH = ${req.body.maxH}, semestre = ${req.body.semestre}  where id_materia =  ${req.params.id_materia} and id_pensum =  ${req.params.id_pensum}`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Actualizado correctamente` });
+        }
     });
-    res.send({ msg: `Actualizado correctamente` })
 });
 
 
@@ -69,9 +79,12 @@ router.post(`/`, function (req, res) {
         $horas: req.body.horas,
         $maxH: req.body.maxH,
         $semestre: req.body.semestre
-    }, info => {
-        console.log(info);
-        res.send(info);
+    }, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Insertado correctamente` });
+        }
     });
 });
 

@@ -7,9 +7,11 @@ const router = Router();
  */
 router.get(`/`, function (req, res) {
     db.all(`select * from curso`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 /** Hace una busqueda por los siguientes parametros
@@ -25,9 +27,11 @@ router.get(`/`, function (req, res) {
 router.get(`/:id_profesor/:id_periodo/:id_materia/:id_pensum`, function (req, res) {
 
     db.get(`select * from curso where id_profesor =  ${req.params.id_profesor} and id_periodo = ${req.params.id_periodo} and id_materia = ${req.params.id_materia} and id_pensum = ${req.params.id_pensum}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 
@@ -41,9 +45,11 @@ router.get(`/:id_profesor/:id_periodo/:id_materia/:id_pensum`, function (req, re
 router.delete(`/:id_materia/:id_pensum/:id_periodo/:seccion`, function (req, res) {
 
     db.get(`delete from curso where id_materia = ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} and id_periodo = ${req.params.id_periodo} and seccion = ${req.params.seccion}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send({ msg: `Eliminado correctamente` })
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Eliminado correctamente` });
+        }
     });
 });
 /** Actualiza un registro
@@ -59,10 +65,13 @@ router.delete(`/:id_materia/:id_pensum/:id_periodo/:seccion`, function (req, res
 
 router.put(`/:id_materia/:id_pensum/:id_periodo/:seccion`, function (req, res) {
 
-    db.run(`UPDATE curso SET id_profesor = ${req.body.id_profesor}, horario = '${req.body.horario}'  where id_materia = ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} and id_periodo = ${req.params.id_periodo} and seccion = ${req.params.seccion}`, (err) => {
-        console.log(err);
+    db.run(`UPDATE curso SET id_profesor = ${req.body.id_profesor}, horario = '${req.body.horario}'  where id_materia = ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} and id_periodo = ${req.params.id_periodo} and seccion = ${req.params.seccion}`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Actualizado correctamente` });
+        }
     });
-    res.send({ msg: `Actualizado correctamente` })
 });
 
 /** Inserta un registro
@@ -79,9 +88,12 @@ router.post(`/`, function (req, res) {
 
     // console.log(req.body);
     db.run(`insert into curso( id_profesor, id_periodo, id_materia, semestre, seccion, id_pensum, horario)  values ( ${req.body.id_profesor}, ${req.body.id_periodo}, ${req.body.id_materia}, ${req.body.semestre}, ${req.body.seccion}, ${req.body.id_pensum}, '${req.body.horario}')`, {
-    }, info => {
-        console.log(info);
-        res.send({ msg: `Insertado correctamente` })
+    }, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Insertado correctamente` });
+        }
     });
 });
 

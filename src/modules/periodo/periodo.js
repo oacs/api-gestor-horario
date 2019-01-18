@@ -9,9 +9,11 @@ const router = Router();
  */
 router.get(`/`, function (req, res) {
     db.all(`select * from periodo`, (err, row) => {
-        console.log(err);
-        console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 
@@ -21,9 +23,17 @@ router.get(`/`, function (req, res) {
 router.get(`/:id`, function (req, res) {
 
     db.get(`select * from periodo where id =  ${req.params.id}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err});
+        } else {
+            if (row == null) {
+                res.status(404);
+                res.send({ msg: 'Periodo no encontrado', status: -1})
+            } else {
+
+                res.send(row);
+            }
+        }
     });
 });
 
@@ -33,9 +43,12 @@ router.get(`/:id`, function (req, res) {
 router.delete(`/:id`, function (req, res) {
 
     db.get(`delete from periodo where id =  ${req.params.id}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Actualizado correctamente`, status: 1  })
+        }
+
     });
 });
 
@@ -47,9 +60,9 @@ router.put(`/:id`, function (req, res) {
 
     db.run(`UPDATE periodo SET nombre = '${req.body.nombre}'  where id = ${req.params.id}`, (result, err) => {
         if (err) {
-            console.log(err);
+            res.send({err: err, status: -1});
         } else {
-            res.send({ msg: `Actualizado correctamente` })
+            res.send({ msg: `Actualizado correctamente`, status: 1  })
         }
     });
 
@@ -61,9 +74,12 @@ router.put(`/:id`, function (req, res) {
 router.post(`/`, function (req, res) {
 
     console.log(req.body);
-    db.run(`insert into periodo(nombre) values ('${req.body.nombre}')`, info => {
-        console.log(info);
-        res.send(info);
+    db.run(`insert into periodo(nombre) values ('${req.body.nombre}')`, err => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Agregado correctamente`, status: 1 })
+        }
     });
 });
 

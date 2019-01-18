@@ -7,9 +7,11 @@ const router = Router();
  */
 router.get(`/`, function (req, res) {
     db.all(`select * from prelacion`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 
@@ -17,9 +19,11 @@ router.get(`/`, function (req, res) {
 router.get(`/:id_prelacion`, function (req, res) {
 
     db.get(`select * from prelacion where id_prelacion =  ${req.params.id_prelacion}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 
@@ -31,9 +35,11 @@ router.get(`/:id_prelacion`, function (req, res) {
 router.delete(`/:id_prelacion`, function (req, res) {
 
     db.get(`delete from prelacion where id_prelacion =  ${req.params.id_prelacion}`, (err, row) => {
-        console.log(err);
-        // console.log(row);
-        res.send({msg : `Eliminado correctamente`});
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 /** Actualiza atributos dado los id
@@ -47,9 +53,12 @@ router.delete(`/:id_prelacion`, function (req, res) {
 router.put(`/:id_prelacion`, function (req, res) {
 
     // console.log(req.body);
-    db.run(`UPDATE prelacion SET id_prelada = ${req.body.id_prelada}, id_prelante = ${req.body.id_prelante}, id_pensum = ${req.body.id_pensum} where id_prelacion = ${req.params.id_prelacion}`, info => {
-        console.log(info);
-        res.send({ msg: `Actualizado correctamente` })
+    db.run(`UPDATE prelacion SET id_prelada = ${req.body.id_prelada}, id_prelante = ${req.body.id_prelante}, id_pensum = ${req.body.id_pensum} where id_prelacion = ${req.params.id_prelacion}`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Actualizado correctamente` });
+        }
     });
 });
 
@@ -66,9 +75,12 @@ router.post(`/`, function (req, res) {
 
     // console.log(req.body);
     db.run(`insert into prelacion( id_prelada, id_prelante, id_pensum)  values ( ${req.body.id_prelada}, ${req.body.id_prelante}, ${req.body.id_pensum})`, {
-    }, info => {
-        console.log(info);
-        res.send({ msg: `Insertado correctamente` })
+    }, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Insertado correctamente` });
+        }
     });
 });
 
