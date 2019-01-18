@@ -8,9 +8,11 @@ const router = Router();
  */
 router.get(`/`, function (req, res) {
     db.all(`select * from pensum`, (err, row) => {
-        console.log(err);
-        console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 /**Obtengo un registro dado su id
@@ -19,9 +21,11 @@ router.get(`/`, function (req, res) {
 router.get(`/:id`, function (req, res) {
 
     db.get(`select * from pensum where id = ` + req.params.id, (err, row) => {
-        console.log(err);
-        console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
     });
 });
 /**Elimino un registro dado su id
@@ -30,9 +34,11 @@ router.get(`/:id`, function (req, res) {
 router.delete(`/:id`, function (req, res) {
 
     db.get(`delete from pensum where id = ` + req.params.id, (err, row) => {
-        console.log(err);
-        console.log(row);
-        res.send(row);
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Registro eliminado correctamente` });
+        }
     });
 });
 /**Obtengo todas las materias de un pensum
@@ -45,10 +51,13 @@ router.get(`/:id/materias`, function (req, res) {
         +`where p.id = $id`
         db.run(query, {
             $id: req.params.id,
-        }, info => {
-            console.log(info);
-            res.send(info);
-        });
+        }, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Registro eliminado correctamente` });
+        }
+    });
 });
 /**Obtengo todas los periodos de un pensum
  * @param id int
@@ -73,9 +82,12 @@ router.put(`/:id`, function (req, res) {
         db.run(`UPDATE pensum SET fecha = $fecha WHERE id = $id`, {
             $id: req.params.id,
             $fecha: req.body.fecha
-        }, info => {
-            console.log(info);
-            res.send(info);
+        }, (err, row) => {
+            if (err) {
+                res.send({err: err, status: -1});
+            } else {
+                res.send({ msg: `Registro actualizado correctamente` });
+            }
         });
     }
 });
@@ -106,9 +118,12 @@ router.post(`/`, function (req, res) {
     console.log(req.body);
     db.run(`insert into pensum(fecha)  values ($fecha)`, {
         $fecha: req.body.fecha
-    }, info => {
-        console.log(info);
-        res.send(info);
+    }, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Registro insertado correctamente` });
+        }
     });
 });
 
