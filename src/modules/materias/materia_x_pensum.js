@@ -29,7 +29,7 @@ router.get(`/:id_materia/:id_pensum`, function (req, res) {
 
 router.get(`/:id_pensum`, function (req, res) {
 
-    db.all(`select * from materia_x_pensum where id_pensum = ${req.params.id_pensum} order by id_materia`, (err, row) => {
+    db.all(`select * from materia_x_pensum inner join materia on materia_x_pensum.id_materia = materia.id where id_pensum = ${req.params.id_pensum} order by id_materia`, (err, row) => {
         if (err) {
             res.send({err: err, status: -1});
         } else {
