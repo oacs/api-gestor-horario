@@ -14,9 +14,9 @@ router.get(`/`, function (req, res) {
 });
 
 
-router.get(`/:id_materia/:id_pensum`, function (req, res) {
+router.get(`/:id_prelacion`, function (req, res) {
 
-    db.get(`select * from materia_x_pensum where id_materia =  ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} `, (err, row) => {
+    db.get(`select * from prelacion where id_prelacion =  ${req.params.id_prelacion}`, (err, row) => {
         console.log(err);
         // console.log(row);
         res.send(row);
@@ -28,12 +28,12 @@ router.get(`/:id_materia/:id_pensum`, function (req, res) {
  * @param id_pensum int
  * @return materia_x_pensum[]
  */
-router.delete(`/:id_materia/:id_pensum`, function (req, res) {
+router.delete(`/:id_prelacion`, function (req, res) {
 
-    db.get(`delete from materia_x_pensum where id_materia =  ${req.params.id_materia} and id_pensum =  ${req.params.id_pensum}`, (err, row) => {
+    db.get(`delete from prelacion where id_prelacion =  ${req.params.id_prelacion}`, (err, row) => {
         console.log(err);
         // console.log(row);
-        res.send(row);
+        res.send({msg : `Eliminado correctamente`});
     });
 });
 /** Actualiza atributos dado los id
@@ -44,12 +44,13 @@ router.delete(`/:id_materia/:id_pensum`, function (req, res) {
  * @return result boolean
  */
 
-router.put(`/:id_materia/:id_pensum`, function (req, res) {
+router.put(`/:id_prelacion`, function (req, res) {
 
-    db.run(`UPDATE materia_x_pensum SET horas = ${req.body.horas}, maxH = ${req.body.maxH}, semestre = ${req.body.semestre}  where id_materia =  ${req.params.id_materia} and id_pensum =  ${req.params.id_pensum}`, (err) => {
-        console.log(err);
+    // console.log(req.body);
+    db.run(`UPDATE prelacion SET id_prelada = ${req.body.id_prelada}, id_prelante = ${req.body.id_prelante}, id_pensum = ${req.body.id_pensum} where id_prelacion = ${req.params.id_prelacion}`, info => {
+        console.log(info);
+        res.send({ msg: `Actualizado correctamente` })
     });
-    res.send({ msg: `Actualizado correctamente` })
 });
 
 
@@ -60,18 +61,14 @@ router.put(`/:id_materia/:id_pensum`, function (req, res) {
  * @body maxH int
  * @return result boolean
  */
+
 router.post(`/`, function (req, res) {
 
     // console.log(req.body);
-    db.run(`insert into materia_x_pensum(id_materia, id_pensum, horas, maxH, semestre)  values ( $id_materia, $id_pensum, $horas, $maxH, $semestre)`, {
-        $id_materia: req.body.id_materia,
-        $id_pensum: req.body.id_pensum,
-        $horas: req.body.horas,
-        $maxH: req.body.maxH,
-        $semestre: req.body.semestre
+    db.run(`insert into prelacion( id_prelada, id_prelante, id_pensum)  values ( ${req.body.id_prelada}, ${req.body.id_prelante}, ${req.body.id_pensum})`, {
     }, info => {
         console.log(info);
-        res.send(info);
+        res.send({ msg: `Insertado correctamente` })
     });
 });
 

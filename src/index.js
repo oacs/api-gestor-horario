@@ -9,6 +9,8 @@ import materia_x_pensum from  './modules/materias/materia_x_pensum'
 import materia from  './modules/materias/materia'
 import pensum from  './modules/pensum/pensum'
 import profesor from './modules/profesores/profesor'
+import prelacion from './modules/materias/prelacion'
+import periodo from './modules/periodo/periodo'
 
 export const db = con;
 // Get env settings
@@ -30,6 +32,8 @@ app.use('/materia_x_pensum', materia_x_pensum);
 app.use('/materia', materia);
 app.use('/pensum', pensum);
 app.use('/profesores', profesor);
+app.use('/prelacion', prelacion);
+app.use('/periodo', periodo);
 
 app.listen(3005, () => {
     console.log('server started - 3005');
