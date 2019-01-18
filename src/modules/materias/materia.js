@@ -86,4 +86,32 @@ router.post(`/`, function (req, res) {
   });
 });
 
+/**Obtengo todas las materias que prelan a una materia dada
+ *
+ */
+router.get(`/:id/prelantes`, function (req, res) {
+  console.log(req.params.id);
+  db.all(`select * from materia_x_pensum INNER JOIN prelacion ON materia_x_pensum.id_materia = prelacion.id_prelada where id_prelada =  ${req.params.id}`, (err, row) => {
+    if (err) {
+        res.send({err: err, status: -1});
+    } else {
+        res.send(row);
+    }
+});
+});
+
+/**Obtengo todas las materias que son preladas por una materia dada
+ *
+ */
+router.get(`/:id/prelandos`, function (req, res) {
+
+  db.all(`select * from materia_x_pensum INNER JOIN prelacion ON materia_x_pensum.id_materia = prelacion.id_prelante where id_prelante =  ${req.params.id}`, (err, row) => {
+    if (err) {
+        res.send({err: err, status: -1});
+    } else {
+        res.send(row);
+    }
+});
+});
+
 module.exports = router;

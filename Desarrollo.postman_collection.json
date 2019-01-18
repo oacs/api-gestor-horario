@@ -210,6 +210,52 @@
 					"response": []
 				},
 				{
+					"name": "getPrelantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia/6/prelantes",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia",
+								"6",
+								"prelantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPrelandos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia/6/prelandos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia",
+								"6",
+								"prelandos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "update",
 					"request": {
 						"method": "PUT",
@@ -339,6 +385,28 @@
 							"path": [
 								"materia_x_pensum",
 								"2",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMateriasByPensum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
 								"1"
 							]
 						}
@@ -949,12 +1017,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api}}/profesores/1",
+							"raw": "{{api}}/profesores/horariosAnteriores/1",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"profesores",
+								"horariosAnteriores",
 								"1"
 							]
 						}

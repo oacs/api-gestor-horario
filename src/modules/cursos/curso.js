@@ -69,7 +69,7 @@ router.put(`/:id_materia/:id_pensum/:id_periodo/:seccion`, function (req, res) {
         if (err) {
             res.send({err: err, status: -1});
         } else {
-            res.send({ msg: `Actualizado correctamente` });
+            res.send({ msg: `Actualizado correctamente` , status: 1});
         }
     });
 });
@@ -92,7 +92,7 @@ router.post(`/`, function (req, res) {
         if (err) {
             res.send({err: err, status: -1});
         } else {
-            res.send({ msg: `Insertado correctamente` });
+            res.send({ msg: `Insertado correctamente` , status: 1});
         }
     });
 });

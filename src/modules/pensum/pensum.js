@@ -86,7 +86,7 @@ router.put(`/:id`, function (req, res) {
             if (err) {
                 res.send({err: err, status: -1});
             } else {
-                res.send({ msg: `Registro actualizado correctamente` });
+                res.send({ msg: `Registro actualizado correctamente`, status: 1 });
             }
         });
     }
@@ -122,7 +122,7 @@ router.post(`/`, function (req, res) {
         if (err) {
             res.send({err: err, status: -1});
         } else {
-            res.send({ msg: `Registro insertado correctamente` });
+            res.send({ msg: `Registro insertado correctamente`, status: 1 });
         }
     });
 });
