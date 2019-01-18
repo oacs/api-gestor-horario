@@ -84,7 +84,7 @@ router.post(`/`, function (req, res) {
     });
 });
 
-router.get(`/horariosAnteriores/:id`, function (req, res) {
+router.get(`/:id/horariosAnteriores`, function (req, res) {
 
     db.get(`select horario, id_periodo from curso where id_profesor =  ${req.params.id}`, (err, row) => {
         if (err) {
