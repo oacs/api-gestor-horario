@@ -12,6 +12,7 @@ import pensum from  './modules/pensum/pensum'
 import profesor from './modules/profesores/profesor'
 import prelacion from './modules/materias/prelacion'
 import periodo from './modules/periodo/periodo'
+import importExport from './modules/profesores/importExport'
 
 export const db = con;
 // Get env settings
@@ -35,6 +36,7 @@ app.use('/pensum', pensum);
 app.use('/profesores', profesor);
 app.use('/prelacion', prelacion);
 app.use('/periodo', periodo);
+app.use('/importExport', importExport);
 
 app.listen(3005, () => {
     console.log('server started - 3005');
