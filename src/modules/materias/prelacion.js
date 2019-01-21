@@ -16,9 +16,23 @@ router.get(`/`, function (req, res) {
 });
 
 
-router.get(`/:id_prelacion`, function (req, res) {
+router.get(`/:id_prelada`, function (req, res) {
 
-    db.get(`select * from prelacion where id_prelacion =  ${req.params.id_prelacion}`, (err, row) => {
+    db.all(`select * from prelacion where id_prelacion =  ${req.params.id_prelada}`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
+    });
+});
+
+router.get(`/:id_prelada/prelantesInfo`, function (req, res) {
+
+    db.all(`select materia.nombre, materia_x_pensum.semestre from prelacion 
+    INNER JOIN materia_x_pensum ON prelacion.id_prelante = materia_x_pensum.id_materia
+    INNER JOIN materia ON materia_x_pensum.id_materia = materia.id
+    where prelacion.id_prelada = ${req.params.id_prelada}`, (err, row) => {
         if (err) {
             res.send({err: err, status: -1});
         } else {
