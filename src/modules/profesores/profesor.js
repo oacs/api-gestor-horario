@@ -110,7 +110,14 @@ router.post(`/`, function (req, res) {
 
 router.get(`/:id/horariosAnteriores`, function (req, res) {
 
-    db.get(`select horario, id_periodo from curso where id_profesor =  ${req.params.id}`, (err, row) => {
+    db.all(`SELECT
+    curso.horario,
+    periodo.nombre as periodo
+    FROM
+    curso
+    INNER JOIN periodo ON curso.id_periodo = periodo.id
+    WHERE
+    curso.id_profesor = ${req.params.id}`, (err, row) => {
         if (err) {
             res.send({
                 err: err,
