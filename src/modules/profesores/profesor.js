@@ -67,7 +67,7 @@ router.delete(`/:id`, function (req, res) {
 
 router.put(`/:id`, function (req, res) {
     if (req.body.nombre) {
-        db.run(`UPDATE profesor SET disp = '${req.body.disp}', nombre = '${req.body.nombre}', correo = '${req.body.correo}' WHERE id = ${req.params.id}`, (err, row) => {
+        db.get(`UPDATE profesor SET disp = '${req.body.disp}', nombre = '${req.body.nombre}', correo = '${req.body.correo}' WHERE id = ${req.params.id}`, (err, row) => {
             if (err) {
                 res.send({
                     err: err,
