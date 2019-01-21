@@ -16,9 +16,11 @@ router.get(`/`, function (req, res) {
 });
 
 
-router.get(`/:id_materia/:id_pensum`, function (req, res) {
+router.get(`/:id_pensum/byPensum`, function (req, res) {
 
-    db.get(`select * from materia_x_pensum where id_materia =  ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} `, (err, row) => {
+    db.all(`select * from materia_x_pensum 
+    inner join materia on materia_x_pensum.id_materia = materia.id 
+    where id_pensum = ${req.params.id_pensum} order by id_materia`, (err, row) => {
         if (err) {
             res.send({err: err, status: -1});
         } else {
@@ -27,9 +29,24 @@ router.get(`/:id_materia/:id_pensum`, function (req, res) {
     });
 });
 
-router.get(`/:id_pensum`, function (req, res) {
 
-    db.all(`select * from materia_x_pensum inner join materia on materia_x_pensum.id_materia = materia.id where id_pensum = ${req.params.id_pensum} order by id_materia`, (err, row) => {
+router.get(`/:id_periodo/byPeriodo`, function (req, res) {
+
+    db.all(`select * from materia_x_pensum 
+    inner join materia on materia_x_pensum.id_materia = materia.id 
+    inner join curso on materia.id = curso.id_materia
+    where id_periodo = ${req.params.id_periodo} order by id_materia`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
+    });
+});
+
+router.get(`/:id_materia/:id_pensum`, function (req, res) {
+
+    db.get(`select * from materia_x_pensum where id_materia =  ${req.params.id_materia} and id_pensum = ${req.params.id_pensum} `, (err, row) => {
         if (err) {
             res.send({err: err, status: -1});
         } else {

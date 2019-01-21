@@ -53,7 +53,7 @@ router.delete(`/:id_prelacion`, function (req, res) {
 router.put(`/:id_prelacion`, function (req, res) {
 
     // console.log(req.body);
-    db.run(`UPDATE prelacion SET id_prelada = ${req.body.id_prelada}, id_prelante = ${req.body.id_prelante}, id_pensum = ${req.body.id_pensum} where id_prelacion = ${req.params.id_prelacion}`, (err, row) => {
+    db.run(`UPDATE prelacion SET id_prelada = ${req.body.id_prelada}, id_prelante = ${req.body.id_prelante}, id_pensum = ${req.body.id_pensum}, tipo = ${req.body.tipo} where id_prelacion = ${req.params.id_prelacion}`, (err, row) => {
         if (err) {
             res.send({err: err, status: -1});
         } else {
@@ -74,7 +74,7 @@ router.put(`/:id_prelacion`, function (req, res) {
 router.post(`/`, function (req, res) {
 
     // console.log(req.body);
-    db.run(`insert into prelacion( id_prelada, id_prelante, id_pensum)  values ( ${req.body.id_prelada}, ${req.body.id_prelante}, ${req.body.id_pensum})`, {
+    db.run(`insert into prelacion( id_prelada, id_prelante, id_pensum, tipo)  values ( ${req.body.id_prelada}, ${req.body.id_prelante}, ${req.body.id_pensum}, ${req.body.tipo})`, {
     }, (err, row) => {
         if (err) {
             res.send({err: err, status: -1});
