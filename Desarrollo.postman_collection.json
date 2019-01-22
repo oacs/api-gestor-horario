@@ -219,13 +219,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api}}/materia/6/prelantes",
+							"raw": "{{api}}/materia/2/1/prelantes",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"materia",
-								"6",
+								"2",
+								"1",
 								"prelantes"
 							]
 						}
@@ -401,13 +402,37 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api}}/materia_x_pensum/1",
+							"raw": "{{api}}/materia_x_pensum/1/byPensum",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"materia_x_pensum",
-								"1"
+								"1",
+								"byPensum"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMateriasByPeriodo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/materia_x_pensum/1/byPeriodo",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"materia_x_pensum",
+								"1",
+								"byPeriodo"
 							]
 						}
 					},
@@ -539,14 +564,13 @@
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "{{api}}/materia_x_pensum/2/1",
+							"raw": "{{api}}/materia_x_pensum/2",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"materia_x_pensum",
-								"2",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -757,6 +781,29 @@
 					"response": []
 				},
 				{
+					"name": "getPrelantesInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/prelacion/2/prelantesInfo",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								"2",
+								"prelantesInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "update",
 					"request": {
 						"method": "PUT",
@@ -858,6 +905,26 @@
 							"path": [
 								"prelacion",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteByPensum",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/prelacion/1/byPensum",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								"1",
+								"byPensum"
 							]
 						}
 					},
@@ -1028,6 +1095,69 @@
 					"response": []
 				},
 				{
+					"name": "export",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "excel",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/importExport/5/disponibilidad/excel",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"importExport",
+								"5",
+								"disponibilidad",
+								"excel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "import",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "excel",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}/importExport/6/disponibilidad/excel",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"importExport",
+								"6",
+								"disponibilidad",
+								"excel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "horarios Anteriores",
 					"request": {
 						"method": "GET",
@@ -1037,14 +1167,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api}}/profesores/horariosAnteriores/1",
+							"raw": "{{api}}/profesores/1/horariosAnteriores",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"profesores",
-								"horariosAnteriores",
-								"1"
+								"1",
+								"horariosAnteriores"
 							]
 						}
 					},
