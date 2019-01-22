@@ -1,6 +1,9 @@
+Object.defineProperty(exports, "__esModule", { value: true });
 
 import { Router } from 'express';
 import { db } from '../..';
+var fs = require('fs');
+var path =  require('path');
 
 const router = Router();
 
@@ -107,10 +110,10 @@ router.get('/:id/horario/export', (req,res) => {
 				fileContent += ExportfileContent(horariosSemestrales.s9,9);
 				fileContent += ExportfileContent(horariosSemestrales.s10,10);
 
-				fs.writeFile(path.join(__dirname, '../../../.tmp/excel.csv'), fileContent, function (err) {
+				fs.writeFile(path.join(__dirname, '../../../.tmp/excelPeriodo.csv'), fileContent, function (err) {
 					if (err) throw err;
 				});
-				res.download(path.join(__dirname, '../../../.tmp/excel.csv'), function (err) {
+				res.download(path.join(__dirname, '../../../.tmp/excelPeriodo.csv'), function (err) {
 					console.log(err);
 				  });
     });
