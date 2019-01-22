@@ -219,13 +219,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api}}/materia/6/prelantes",
+							"raw": "{{api}}/materia/2/1/prelantes",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"materia",
-								"6",
+								"2",
+								"1",
 								"prelantes"
 							]
 						}
@@ -424,14 +425,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{api}}/materia_x_pensum/1/byPensum",
+							"raw": "{{api}}/materia_x_pensum/1/byPeriodo",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"materia_x_pensum",
 								"1",
-								"byPensum"
+								"byPeriodo"
 							]
 						}
 					},
@@ -908,6 +909,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "deleteByPensum",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{api}}/prelacion/1/byPensum",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"prelacion",
+								"1",
+								"byPensum"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1122,13 +1143,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{api}}/importExport/4/disponibilidad/excel",
+							"raw": "{{api}}/importExport/6/disponibilidad/excel",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"importExport",
-								"4",
+								"6",
 								"disponibilidad",
 								"excel"
 							]

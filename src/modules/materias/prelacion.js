@@ -63,7 +63,7 @@ router.delete(`/:id_pensum/byPensum`, function (req, res) {
         if (err) {
             res.send({err: err, status: -1});
         } else {
-            res.send(row);
+            res.send({msg: `Todas las materias del pensum ${req.params.id_pensum} fueron eliminadas`});
         }
     });
 });
