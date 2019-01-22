@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "eabc00ff-66c5-4aa9-a2d4-4eee9c141c77",
+		"_postman_id": "32dc4ebf-da45-4157-b558-4f856d0b21b2",
 		"name": "Desarrollo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -144,7 +144,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/curso/1/1/1/2",
 							"host": [
@@ -329,7 +332,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/materia/5",
 							"host": [
@@ -542,7 +548,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/materia_x_pensum/2/1",
 							"host": [
@@ -562,7 +571,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/materia_x_pensum/2",
 							"host": [
@@ -697,7 +709,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/pensum/3",
 							"host": [
@@ -896,7 +911,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/prelacion/2",
 							"host": [
@@ -915,7 +933,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/prelacion/1/byPensum",
 							"host": [
@@ -1036,13 +1057,12 @@
 							]
 						},
 						"url": {
-							"raw": "{{api}}/periodo/",
+							"raw": "{{api}}/periodo",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"periodo",
-								""
+								"periodo"
 							]
 						}
 					},
@@ -1053,7 +1073,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/periodo/2",
 							"host": [
@@ -1062,6 +1085,30 @@
 							"path": [
 								"periodo",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exportHorario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api}}/periodo/1/horario/export",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"periodo",
+								"1",
+								"horario",
+								"export"
 							]
 						}
 					},
@@ -1279,7 +1326,10 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{api}}/profesores/2",
 							"host": [

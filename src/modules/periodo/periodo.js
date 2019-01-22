@@ -106,12 +106,13 @@ router.get('/:id/horario/export', (req,res) => {
 				fileContent += ExportfileContent(horariosSemestrales.s8,8);
 				fileContent += ExportfileContent(horariosSemestrales.s9,9);
 				fileContent += ExportfileContent(horariosSemestrales.s10,10);
-				console.log(fileContent)
-/*
-				fs.writeFile(path.join(__dirname, '../../../.tmp/excel.csv'), ExportfileContent(ho), function (err) {
+
+				fs.writeFile(path.join(__dirname, '../../../.tmp/excel.csv'), fileContent, function (err) {
 					if (err) throw err;
 				});
-*/
+				res.download(path.join(__dirname, '../../../.tmp/excel.csv'), function (err) {
+					console.log(err);
+				  });
     });
 	});
 	function dataToHorario(data) {
