@@ -68,9 +68,12 @@ router.get(`/:id/periodos`, function (req, res) {
         +`where pem.id = $id`
         db.run(query, {
             $id: req.params.id,
-        }, info => {
-            console.log(info);
-            res.send(info);
+        }, (err, row) => {
+            if (err) {
+                res.send({err: err, status: -1});
+            } else {
+                res.send(row);
+            }
         });
 });
 /**Actualizo un registro dado su id
@@ -105,9 +108,12 @@ router.post(`/:id/materia`, function (req, res) {
         $id_materia: req.body.id_materia,
         $horas : req.body.horas,
         $horasM : req.body.horasM
-    }, info => {
-        console.log(info);
-        res.send(info);
+    }, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send({ msg: `Registro insertado correctamente`, status: 1 });
+        }
     });
 });
 /** Inserta un nuevo regsitro

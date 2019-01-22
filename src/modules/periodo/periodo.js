@@ -5,9 +5,6 @@ import { db } from '../..';
 var fs = require('fs');
 var path =  require('path');
 
-var fs = require('fs');
-var path =  require('path');
-
 const router = Router();
 
 /** Obtengo todos los registros
