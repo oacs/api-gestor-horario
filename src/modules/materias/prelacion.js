@@ -56,6 +56,18 @@ router.delete(`/:id_prelacion`, function (req, res) {
         }
     });
 });
+
+router.delete(`/:id_pensum/byPensum`, function (req, res) {
+
+    db.get(`delete from prelacion where id_pensum =  ${req.params.id_pensum}`, (err, row) => {
+        if (err) {
+            res.send({err: err, status: -1});
+        } else {
+            res.send(row);
+        }
+    });
+});
+
 /** Actualiza atributos dado los id
  * @param id_materia int
  * @param id_pensum int
