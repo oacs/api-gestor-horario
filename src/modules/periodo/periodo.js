@@ -2,6 +2,9 @@
 import { Router } from 'express';
 import { db } from '../..';
 
+var fs = require('fs');
+var path =  require('path');
+
 const router = Router();
 
 /** Obtengo todos los registros
@@ -88,7 +91,7 @@ router.get('/:id/horario/export', (req,res) => {
     from curso as c
     inner join profesor as p on c.id_profesor = p.id
     inner join periodo as pe on c.id_periodo = pe.id
-    inner join materia_x_pensum as mxp on mxp.id_materia = c.id_materia
+    inner join materia_x_pensum as mxp on mxp.id_materia = c.id_materia and c.id_pensum = mxp.id_pensum
     inner join materia as m on mxp.id_materia = m.id
     inner join pensum as pen on c.id_pensum = pen.id
     where pe.id = ${req.params.id}
